@@ -36,3 +36,25 @@ const t2 = t.concat(5)  // creates new array
 
 console.log(t)  // [1, -1, 3] is printed
 console.log(t2)  // [1, -1, 3, 5] is printed
+// t.concat(5) does not add a new item to the old array but returns a new array which, besides containing the items of the old array, also contains the new item.
+// Let's look at a short example of using the map method.
+// Based on the old array, map creates a new array, for which the function given as a parameter is used to create the items.
+const t = [1, 2, 3]
+
+const m1 = t.map(value => value * 2)
+console.log(m1)   // [2, 4, 6] is printed
+
+// Map can also transform the array into something completely different:
+
+const m2 = t.map(value => '<li>' + value + '</li>')
+console.log(m2)  
+// [ '<li>1</li>', '<li>2</li>', '<li>3</li>' ] is printed
+
+// Individual items of an array are easy to assign to variables with the help of the destructuring assignment.
+
+const t = [1, 2, 3, 4, 5]
+
+const [first, second, ...rest] = t
+
+console.log(first, second)  // 1 2 is printed
+console.log(rest)          // [3, 4, 5] is printed
