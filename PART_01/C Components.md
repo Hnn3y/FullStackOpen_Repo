@@ -35,8 +35,11 @@ const App = () => {
     </div>
   )
 }
+```
 
-## 2. Component Helper Functions
+## 2. Component Helper 
+
+```jsx
 const Hello = (props) => {
   const bornYear = () => {
     const yearNow = new Date().getFullYear()
@@ -50,7 +53,7 @@ const Hello = (props) => {
     </div>
   )
 }
-
+```
 
 Functions can be nested inside components.
 
@@ -61,7 +64,7 @@ Function-in-function definitions are common in JavaScript.
 ## 3. Destructuring Props
 
 Instead of repeatedly writing props.name or props.age, we can destructure:
-
+```jsx
 const Hello = ({ name, age }) => {
   const bornYear = () => new Date().getFullYear() - age
 
@@ -71,12 +74,14 @@ const Hello = ({ name, age }) => {
       <p>So you were probably born in {bornYear()}</p>
     </div>
   )
-}
+} 
+```
 
 
 Destructuring simplifies code and improves readability.
 
-4. Page Re-rendering Example
+## 4. Page Re-rendering Example
+```jsx
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
@@ -101,11 +106,12 @@ setInterval(() => {
   refresh()
   counter += 1
 }, 1000)
-
+```
 
 However, re-rendering manually is not ideal. React provides state hooks to handle this better.
 
-5. Stateful Component (using useState)
+## 5. Stateful Component (using useState)
+```jsx
 import { useState } from 'react'
 
 const App = () => {
@@ -128,14 +134,15 @@ Every update re-executes the component function.
 Debug Tip:
 
 console.log('rendering...', counter)
+```
 
 
 Use console.log to trace component behavior.
 
-6. Event Handling
+## 6. Event Handling
 
 Adding a button to increase the counter:
-
+```jsx
 const App = () => {
   const [counter, setCounter] = useState(0)
 
@@ -148,32 +155,35 @@ const App = () => {
     </div>
   )
 }
-
+```
 
 Or more directly:
-
+```jsx
 <button onClick={() => setCounter(counter + 1)}>plus</button>
-
+```
 
 Add reset functionality:
-
+```jsx
 <button onClick={() => setCounter(0)}>zero</button>
+```
 
-7. Correct Event Handler Usage
+## 7. Correct Event Handler Usage
 
 ❌ Wrong (immediate call on render):
-
+```jsx
 <button onClick={setCounter(counter + 1)}>plus</button>
-
+```
 
 ✅ Correct:
-
+```jsx
 <button onClick={() => setCounter(counter + 1)}>plus</button>
-
+```
 
 React expects a function reference, not a function call.
 
-8. Separating Event Handlers
+## 8. Separating Event Handlers
+```jsx
+
 const App = () => {
   const [counter, setCounter] = useState(0)
 
@@ -188,11 +198,12 @@ const App = () => {
     </div>
   )
 }
-
+```
 
 This improves code clarity and maintainability.
 
-9. Passing State to Child Components
+## 9. Passing State to Child Components
+```jsx
 
 Display Component:
 
@@ -214,11 +225,14 @@ const App = () => {
     </div>
   )
 }
+```
 
 
 State is lifted up to the parent (App) and passed down as props.
 
-10. Reusable Button Component
+## 10. Reusable Button Component
+```jsx
+
 const Button = ({ onClick, text }) => (
   <button onClick={onClick}>{text}</button>
 )
@@ -242,8 +256,9 @@ const App = () => {
     </div>
   )
 }
+```
 
-11. How Re-rendering Works
+## 11. How Re-rendering Works
 
 The App component initializes with counter = 0.
 
@@ -256,10 +271,13 @@ React detects state change → re-renders App.
 Updated props are passed to Display and Button components.
 
 Debug Example:
+```jsx
 
 console.log('rendering with counter value', counter)
+```
 
-12. Refactoring Components
+## 12. Refactoring Components
+```jsx
 
 Display (simplified):
 
@@ -269,8 +287,9 @@ const Display = ({ counter }) => <div>{counter}</div>
 Button (simplified):
 
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
+```
 
-Key Takeaways
+--> Key Takeaways
 
 Components can contain logic through helper functions.
 
