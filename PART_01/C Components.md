@@ -289,7 +289,7 @@ Button (simplified):
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 ```
 
---> Key Takeaways
+- Key Takeaways
 
 Components can contain logic through helper functions.
 
